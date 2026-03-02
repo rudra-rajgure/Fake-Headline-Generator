@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake Headline Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+<h1 id="headline">{{ headline }}</h1>
+
+<div class="buttons">
+    <button onclick="copyHeadline()" class="copy-btn">📋 Copy</button>
+    <button onclick="shareHeadline()" class="share-btn">📤 Share</button>
+</div>
+
+<form method="get">
+    <input type="hidden" name="category" id="selectedCategory" value="gaming">
+
+    <div class="category-boxes">
+        <div class="cat active" onclick="selectCategory(this,'gaming')">🎮 Gaming</div>
+        <div class="cat" onclick="selectCategory(this,'politics')">🏛 Politics</div>
+        <div class="cat" onclick="selectCategory(this,'internet')">🌐 Internet</div>
+        <div class="cat" onclick="selectCategory(this,'student')">📚 Student</div>
+        <div class="cat" onclick="selectCategory(this,'tech')">💻 Tech</div>
+    </div>
+
+    <button type="submit" class="generate-btn">Generate Headline</button>
+</form>
+
+</div>
+
+<footer class="footer">
+    <p>📰 Fake Headline Generator</p>
+    <p>Built with Flask • Python • HTML • CSS</p>
+    <p>Created by Spidyy © 2026</p>
+    <p>⚠️ This project is made only for learning and fun purposes.</p>
+</footer>
+
+<script>
+function selectCategory(el, category){
+    document.getElementById("selectedCategory").value = category;
+
+    document.querySelectorAll(".cat").forEach(c=>{
+        c.classList.remove("active");
+    });
+
+    el.classList.add("active");
+}
+
+function copyHeadline(){
+    const text = document.getElementById("headline").innerText;
+    navigator.clipboard.writeText(text);
+    alert("✅ Copied!");
+}
+
+function shareHeadline(){
+    const text = document.getElementById("headline").innerText;
+
+    if(navigator.share){
+        navigator.share({ text: text });
+    } else {
+        alert("Sharing not supported. Copy instead.");
+    }
+}
+</script>
+
+</body>
+</html>

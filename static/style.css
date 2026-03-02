@@ -1,0 +1,101 @@
+body{
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Arial;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+
+/* keeps footer at bottom */
+.page-wrapper{
+    flex:1;
+    text-align:center;
+    margin-top:100px;
+}
+
+h1{
+    width:70%;
+    margin:auto;
+    padding:25px;
+    background:#181818;
+    border-radius:12px;
+    box-shadow:0 0 25px rgba(255,68,68,0.35);
+    animation:fade .4s ease-in-out;
+}
+
+.category-boxes{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.cat{
+    background:#1f1f1f;
+    padding:15px 25px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.cat:hover{
+    transform:translateY(-6px);
+    border:2px solid #ff4444;
+    box-shadow:0 8px 25px rgba(255,68,68,0.5);
+}
+
+.cat.active{
+    border:2px solid #ff4444;
+    box-shadow:0 8px 30px rgba(255,68,68,0.6);
+}
+
+.generate-btn{
+    margin-top:30px;
+    padding:14px 28px;
+    background:#ff4444;
+    border:none;
+    border-radius:10px;
+    color:white;
+    cursor:pointer;
+}
+
+.buttons{
+    margin-top:15px;
+}
+
+.copy-btn,
+.share-btn{
+    margin:5px;
+    padding:10px 20px;
+    background:#222;
+    border:none;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.copy-btn:hover,
+.share-btn:hover,
+.generate-btn:hover{
+    box-shadow:0 0 10px rgba(255,68,68,0.6);
+    transform:scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #111;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+@keyframes fade{
+    from{opacity:0; transform:translateY(-10px);}
+    to{opacity:1; transform:translateY(0);}
+}
